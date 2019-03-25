@@ -13,7 +13,7 @@ package ca.sheridancollege.project;
  * @modifier Jingwei Sun, 2019
  */
 public abstract class Card 
-{
+{ 
     //default modifier for child classes
     
     /**
