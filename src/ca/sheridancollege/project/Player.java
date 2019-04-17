@@ -10,7 +10,7 @@ package ca.sheridancollege.project;
  * @author dancye, 2018
  * @modifier Jingwei Sun, 2019
  */
-public abstract class Player 
+public class Player 
 {
     private String playerID; //the unique ID for this player
     
@@ -39,11 +39,5 @@ public abstract class Player
     {
         playerID = givenID;
     }
-    
-    /**
-     * The method to be instantiated when you subclass the Player class
-     * with your specific type of Player and filled in with logic to play your game.
-     */
-    public abstract void play();
     
 }

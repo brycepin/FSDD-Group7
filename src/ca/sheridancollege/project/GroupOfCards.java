@@ -19,26 +19,30 @@ public class GroupOfCards
 {
    
     //The group of cards, stored in an ArrayList
-    private ArrayList <WarCards> cards;
-    private int size;//the size of the grouping
+    private ArrayList <Card> cards;
+    private int size = 52;//the size of the grouping
+    private Card[] card = new Card[size];
     
-    public GroupOfCards(int givenSize)
+    private ArrayList<Card> deal1;
+    private ArrayList<Card> deal2;
+    
+    public GroupOfCards()
     {
-        size = givenSize;
+       
     }
     
     /**
      * A method that will get the group of cards as an ArrayList
      * @return the group of cards.
      */
-    public ArrayList<WarCards> showCards()
+    public ArrayList<Card> showCards()
     {
         return cards;
     }
     
     public void shuffle()
     {
-        Collections.shuffle(cards);
+       Collections.shuffle(cards);
     }
 
     /**
@@ -55,4 +59,44 @@ public class GroupOfCards
         size = givenSize;
     }
     
+    public void generateHand() {
+    
+        cards = new ArrayList<>();
+
+        int count = 0;
+
+        for (Card.Suits s : Card.Suits.values()) {
+            for (Card.Ranks r : Card.Ranks.values()) {
+
+                cards.add(new Card(s, r));
+                
+                count++;
+                
+            }
+        }
+        
+    }
+    
+    
+    public ArrayList<Card> dealHandOne() {
+        ArrayList<Card> deal1 = new ArrayList<>();
+        
+        for (int i = 0; i < cards.size(); i+=2) {
+            deal1.add(cards.get(i));
+        }
+        
+      return deal1;
+    }
+    
+     public ArrayList<Card> dealHandTwo() {
+        ArrayList<Card> deal2 = new ArrayList<>();
+        
+        for (int i = 1; i < cards.size(); i+=2) {
+            deal2.add(cards.get(i));
+        }
+        
+      return deal2;
+    }
+   
+	
 }//end class

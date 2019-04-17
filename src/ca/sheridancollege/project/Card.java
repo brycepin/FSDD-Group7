@@ -12,7 +12,7 @@ package ca.sheridancollege.project;
  * @author dancye, 2018
  * @modifier Jingwei Sun, 2019
  */
-public abstract class Card 
+public class Card 
 { 
     //default modifier for child classes
     
@@ -21,7 +21,42 @@ public abstract class Card
      * @return a String representation of a card. Could be an UNO card, a regular playing card etc.
      */
     
+    public enum Suits {
+        SPADES, HEART, CLUBS, DIAMOND
+    }
+        
+    public enum Ranks {
+        ACE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE,
+        TEN, JACK, QUEEN, KING
+    }
+    
+    private Suits s;
+    private Ranks r;
+    
+    public Card(Suits s, Ranks r) {
+        this.s = s;
+        this.r = r;
+    }
+    
+    public void setS(Suits s) {
+       this.s = s;
+    }
+    public void setR(Ranks r) {
+        this.r = r;
+    }
+
+    public Suits getS() {
+        return s;
+    }
+
+    public Ranks getR() {
+        return r;
+    }
+    
     @Override
-    public abstract String toString();
+    public String toString() {
+    return "Rank: " + r + " | " + "Suit: " + s + "\n";
+    }
+    
     
 }
